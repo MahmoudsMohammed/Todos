@@ -1,12 +1,4 @@
-<li class="list-group-item">
-  <span check><i class="fa-solid fa-check"></i></span> <span>Task</span>
-  <span>X</span>
-</li>
-<li class="list-group-item">
+<li class="list-group-item" *ngIf="!remove">
   <span check><i class="fa-solid fa-check"></i></span> <span>Task</span
-  ><span>X</span>
-</li>
-<li class="list-group-item">
-  <span check><i class="fa-solid fa-check"></i></span> <span>Task</span
-  ><span>X</span>
+  ><span (click)="onRemove()">X</span>
 </li>

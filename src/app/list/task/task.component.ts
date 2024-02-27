@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
 })
-export class TaskComponent {}
+export class TaskComponent {
+  remove = false;
+  onRemove() {
+    this.remove = true;
+  }
+}

@@ -17,6 +17,16 @@ export class checkDirective {
     ) {
       this.render.setStyle(this.eleRef.nativeElement, 'border-color', 'green');
       this.render.setStyle(
+        (this.eleRef.nativeElement as HTMLElement).nextElementSibling,
+        'text-decoration',
+        'line-through'
+      );
+      this.render.setStyle(
+        (this.eleRef.nativeElement as HTMLElement).nextElementSibling,
+        'color',
+        '#9494A2'
+      );
+      this.render.setStyle(
         (this.eleRef.nativeElement as HTMLElement).firstElementChild,
         'color',
         'green'

@@ -1,0 +1,35 @@
+li {
+  & {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  &:hover span:last-of-type {
+    display: block;
+  }
+  span:last-of-type {
+    margin-left: auto;
+    color: #9898bc;
+    font-weight: 600;
+    display: none;
+    color: red;
+    cursor: pointer;
+  }
+  span:first-of-type {
+    & {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    i {
+      display: none;
+    }
+  }
+}

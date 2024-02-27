@@ -1,0 +1,20 @@
+<div class="list">
+  <div class="p-3">
+    <i class="fa-solid fa-arrow-down"></i>
+    <input type="text" placeholder="What needs to be done ?" />
+  </div>
+  <ul class="tasks list-group">
+    <app-task />
+  </ul>
+  <footer
+    class="d-flex justify-content-between flex-wrap gap-2 align-items-center"
+  >
+    <span>1 item left</span>
+    <div class="states">
+      <button class="btn btn-secondary me-1">All</button>
+      <button class="btn btn-warning me-1">Active</button>
+      <button class="btn btn-success">Completed</button>
+    </div>
+    <button class="btn btn-danger">Clear Completed</button>
+  </footer>
+</div>

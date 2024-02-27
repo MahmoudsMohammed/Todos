@@ -1,15 +1,20 @@
 <div class="list">
-  <div class="p-3">
+  <form class="p-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <i class="fa-solid fa-arrow-down"></i>
-    <input type="text" placeholder="What needs to be done ?" />
-  </div>
+    <input
+      type="text"
+      placeholder="What needs to be done ?"
+      ngModel
+      name="task"
+    />
+  </form>
   <ul class="tasks list-group">
-    <app-task />
+    <app-task *ngFor="let task of allTasks" [content]="task.text" />
   </ul>
   <footer
     class="d-flex justify-content-between flex-wrap gap-2 align-items-center"
   >
-    <span>1 item left</span>
+    <span>{{ tasksNumber }} item left</span>
     <div class="states">
       <button class="btn btn-light me-1">All</button>
       <button class="btn btn-light me-1">Active</button>

@@ -34,4 +34,17 @@ li {
       text-decoration: none !important;
     }
   }
+  .complete{
+    &{
+      border-color: green !important;
+    }
+    & i{
+      color: green;
+      display: block !important;
+    }
+    &+span{
+      text-decoration: line-through;
+      color: #9494A2;
+    }
+  }
 }

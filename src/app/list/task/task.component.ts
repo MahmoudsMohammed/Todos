@@ -10,9 +10,14 @@ import { task } from '../task.interface';
 export class TaskComponent {
   constructor(private listServ:listServices){};
   @Input({ required: true }) content: task;
+  @Input({ required: true }) index: number;
   remove = false;
   onRemove() {
     this.listServ.removeTask(this.content.id);
     this.remove = true;
+  }
+
+  addToCompleted(){
+    this.listServ.addToCompleted(this.index);
   }
 }

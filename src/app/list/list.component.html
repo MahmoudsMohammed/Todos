@@ -9,7 +9,7 @@
     />
   </form>
   <ul class="tasks list-group">
-    <app-task *ngFor="let task of tasks()" [content]="task" />
+    <app-task *ngFor="let task of tasks();let i = index" [content]="task" [index]="i"/>
   </ul>
   <footer
     class="d-flex justify-content-between flex-wrap gap-2 align-items-center"
@@ -20,6 +20,6 @@
       <button class="btn btn-light me-1" (click)="getActive()">Active</button>
       <button class="btn btn-light" (click)="getCompleted()">Completed</button>
     </div>
-    <button class="btn btn-danger">Clear Completed</button>
+    <button class="btn btn-danger" (click)="onClear()">Clear Completed</button>
   </footer>
 </div>

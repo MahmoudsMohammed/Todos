@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
     this.tasks = this.listServ.allTasks;
   }
   onSubmit(f: NgForm) {
-    if (f.value.task !== '') {
+    if (f.value.task) {
       this.listServ.AddTask = f.value.task;
       f.reset();
     }
@@ -30,5 +30,9 @@ export class ListComponent implements OnInit {
 
   getCompleted(){
     this.tasks = this.listServ.completedTask();
+  }
+
+  onClear(){
+    this.listServ.clearCompleted();
   }
 }

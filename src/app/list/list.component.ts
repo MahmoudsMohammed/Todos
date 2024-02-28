@@ -10,6 +10,10 @@ import { listServices } from './list.service';
 export class ListComponent implements OnInit {
   constructor(private listServ: listServices) {}
   tasks;
+  all = true;
+  active = false;
+  completed = false;
+
   ngOnInit(): void {
     this.tasks = this.listServ.allTasks;
   }
@@ -22,14 +26,23 @@ export class ListComponent implements OnInit {
 
   getAll(){
     this.tasks = this.listServ.allTasks;
+    this.all = true;
+    this.active = false;
+    this.completed = false;
   }
 
   getActive(){
     this.tasks = this.listServ.activeTask();
+    this.all = false;
+    this.active = true;
+    this.completed = false;
   }
 
   getCompleted(){
     this.tasks = this.listServ.completedTask();
+    this.all = false;
+    this.active = false;
+    this.completed = true;
   }
 
   onClear(){

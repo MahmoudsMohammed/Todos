@@ -14,11 +14,11 @@
   <footer
     class="d-flex justify-content-between flex-wrap gap-2 align-items-center"
   >
-    <span>{{ tasks().length }} item left</span>
+    <span>{{ tasks().length }} items</span>
     <div class="states">
-      <button class="btn btn-light me-1" (click)="getAll()">All</button>
-      <button class="btn btn-light me-1" (click)="getActive()">Active</button>
-      <button class="btn btn-light" (click)="getCompleted()">Completed</button>
+      <button class="btn btn-light me-1" (click)="getAll()" [ngClass]="{'active':all}">All</button>
+      <button class="btn btn-light me-1" (click)="getActive()" [ngClass]="{'active':active}">Active</button>
+      <button class="btn btn-light" (click)="getCompleted()" [ngClass]="{'active':completed}">Completed</button>
     </div>
     <button class="btn btn-danger" (click)="onClear()">Clear Completed</button>
   </footer>

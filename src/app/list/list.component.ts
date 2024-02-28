@@ -19,4 +19,16 @@ export class ListComponent implements OnInit {
       f.reset();
     }
   }
+
+  getAll(){
+    this.tasks = this.listServ.allTasks;
+  }
+
+  getActive(){
+    this.tasks = this.listServ.activeTask();
+  }
+
+  getCompleted(){
+    this.tasks = this.listServ.completedTask();
+  }
 }

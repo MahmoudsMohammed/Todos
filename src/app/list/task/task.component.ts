@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { listServices } from '../list.service';
+import { task } from '../task.interface';
 
 @Component({
   selector: 'app-task',
@@ -6,9 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
-  @Input({ required: true }) content: string;
+  constructor(private listServ:listServices){};
+  @Input({ required: true }) content: task;
   remove = false;
   onRemove() {
+    this.listServ.removeTask(this.content.id);
     this.remove = true;
   }
 }

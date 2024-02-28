@@ -9,12 +9,12 @@
     />
   </form>
   <ul class="tasks list-group">
-    <app-task *ngFor="let task of allTasks" [content]="task.text" />
+    <app-task *ngFor="let task of tasks()" [content]="task" />
   </ul>
   <footer
     class="d-flex justify-content-between flex-wrap gap-2 align-items-center"
   >
-    <span>{{ tasksNumber }} item left</span>
+    <span>{{ tasks().length }} item left</span>
     <div class="states">
       <button class="btn btn-light me-1">All</button>
       <button class="btn btn-light me-1">Active</button>

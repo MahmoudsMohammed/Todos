@@ -3,11 +3,19 @@ import { task } from './task.interface';
 
 @Injectable({ providedIn: 'root' })
 export class listServices {
-  private tasks = signal<task[]>([]);
+  tasks = signal<task[]>([]);
+  id = 0;
   get allTasks() {
-    return this.tasks();
+    return this.tasks;
   }
-  set AddTask(t: task) {
-    this.tasks.update(() => [...this.tasks(), t]);
+  set AddTask(text: string) {
+    this.tasks.update((all) => [
+      ...all,
+      { id: this.id, text: text, isCompleted: false },
+    ]);
+    this.id += 1;
+  }
+  removeTask(id:number){
+    this.allTasks.update(tasks=>tasks.filter(t=> t.id !== id));
   }
 }

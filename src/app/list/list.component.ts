@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { listServices } from './list.service';
-import { task } from './task.interface';
 
 @Component({
   selector: 'app-list',
@@ -10,22 +9,14 @@ import { task } from './task.interface';
 })
 export class ListComponent implements OnInit {
   constructor(private listServ: listServices) {}
-  id: number = 0;
-  tasksNumber;
-  allTasks: task[];
+  tasks;
   ngOnInit(): void {
-    this.tasksNumber = this.listServ.allTasks.length;
-    this.allTasks = this.listServ.allTasks;
+    this.tasks = this.listServ.allTasks;
   }
   onSubmit(f: NgForm) {
-    this.listServ.AddTask = {
-      id: this.id,
-      text: f.value.task,
-      isCompleted: false,
-    };
-    this.id += 1;
-    this.tasksNumber = this.listServ.allTasks.length;
-    this.allTasks = this.listServ.allTasks;
-    console.log(this.tasksNumber);
+    if (f.value.task !== '') {
+      this.listServ.AddTask = f.value.task;
+      f.reset();
+    }
   }
 }
